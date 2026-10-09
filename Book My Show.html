@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061426">
+<title>Book My Show | Cinema Experience</title>
+<style>
+:root{--bg:#030b17;--panel:#071a2d;--line:#16466b;--gold:#ffcc55;--gold2:#f5a623;--text:#f4f7ff;--muted:#a9bed7;--green:#38d9a9}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#183c60 0,#071528 42%,#020711 80%);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}.shell{max-width:1180px;margin:auto;padding:22px 16px 36px}
+.hero{position:relative;overflow:hidden;min-height:245px;border:1px solid #224665;border-radius:22px;background:linear-gradient(100deg,rgba(2,9,19,.96),rgba(5,22,40,.76)),radial-gradient(ellipse at 78% 5%,#b84730 0,transparent 26%),linear-gradient(135deg,#09152a,#153958 58%,#32141c);box-shadow:0 18px 55px #0008;display:flex;align-items:center;padding:34px 38px}.hero:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 72px,#ffffff04 73px 75px);pointer-events:none}.hero:after{content:"";position:absolute;right:-55px;bottom:-112px;width:470px;height:245px;border-radius:50% 50% 0 0;background:repeating-linear-gradient(0deg,#9b1e2b 0 11px,#4b0d19 12px 18px);transform:perspective(180px) rotateX(16deg);opacity:.68;box-shadow:0 -15px 55px #e83a4320}.hero-content{position:relative;z-index:1;max-width:650px}.kicker{color:var(--gold);letter-spacing:.22em;font-weight:800;font-size:.75rem;text-transform:uppercase}h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.02;margin:9px 0 12px;letter-spacing:-.045em}h1 span{color:var(--gold)}.hero p{margin:0;color:#d0deef;max-width:520px}.hero-tag{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:8px 12px;border:1px solid #ffcc5570;border-radius:99px;background:#ffcc5510;color:#ffe3a0;font-size:.85rem}.hero-tag b{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+main{margin-top:20px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,.85fr);gap:18px;align-items:start}.panel{background:linear-gradient(145deg,#071a2df5,#041222f5);border:1px solid #17466b;border-radius:18px;padding:23px;box-shadow:0 14px 35px #0004}.full{grid-column:1/-1}.section-head{display:flex;align-items:center;gap:12px;margin:0 0 18px}.num{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#101a27;font-weight:900;font-size:1.1rem;flex-shrink:0;box-shadow:0 5px 18px #ffcc5525}.section-head h2{font-size:1.08rem;margin:0}.section-head p{color:var(--muted);font-size:.85rem;margin:2px 0 0}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.fields.three{grid-template-columns:repeat(3,minmax(0,1fr))}.field{display:flex;flex-direction:column;gap:7px;min-width:0}label{font-size:.87rem;font-weight:700;color:#e3ecfb}input,select{width:100%;min-height:47px;padding:11px 12px;border-radius:10px;border:1px solid #315b7e;background:#091f36;color:var(--text);outline:none}input::placeholder{color:#829bb6}input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #ffcc5520}select option{background:#091f36;color:white}
+.availability{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:14px;padding:13px 15px;border:1px solid #194c70;border-radius:11px;background:#071b2e}.availability small{display:block;color:var(--muted)}.availability strong{font-size:1.12rem;color:#eaf4ff}.pill{padding:5px 9px;border-radius:99px;background:#102f4d;color:#c7e4ff;font-size:.76rem;font-weight:700}
+.ticket-row{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid #15344f}.ticket-row:last-of-type{border-bottom:0}.ticket-row strong{display:block}.ticket-row small{color:var(--muted)}.ticket-row input{min-height:42px;text-align:center}.free-note{margin-top:14px;padding:12px;border:1px solid #168c83;border-radius:10px;background:#063333;color:#9ef8e5;font-size:.84rem}
+.summary-top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:16px}.summary-top h2{margin:0;color:var(--gold);font-size:1.15rem}.summary-list{display:grid;grid-template-columns:1fr auto;gap:12px 10px;padding:4px 0 17px}.summary-list span{color:var(--muted);font-size:.88rem}.summary-list strong{text-align:right;max-width:60%;overflow-wrap:anywhere}.summary-divider{height:1px;background:linear-gradient(90deg,var(--gold),#24445e);margin:0 0 14px}.total-line{display:flex;justify-content:space-between;gap:12px;align-items:center}.total-line span{font-weight:800}.total-line strong{font-size:1.7rem;color:var(--gold);white-space:nowrap}.button-row{display:flex;gap:10px;margin-top:19px}button{border:0;border-radius:10px;padding:12px 15px;min-height:46px;font-weight:800;cursor:pointer;transition:transform .15s,filter .15s}button:hover{filter:brightness(1.08);transform:translateY(-1px)}button:disabled{opacity:.65;cursor:wait;transform:none}.primary{flex:1;background:linear-gradient(135deg,#ffda72,#ffb92e);color:#171b23;box-shadow:0 6px 18px #ffbf3c25}.secondary{background:transparent;border:1px solid #51708e;color:#e6eef8}.message{margin-top:14px;padding:12px;border-radius:10px;font-size:.9rem}.error{background:#3a151a;border:1px solid #8d333c;color:#ffd5d5}.success{background:#093329;border:1px solid #1d8b69;color:#b5ffe8}
+.terms{list-style:none;padding:0;margin:0}.terms li{display:grid;grid-template-columns:35px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid #15344f}.terms li:last-child{border-bottom:0}.term-icon{width:34px;height:34px;border:1px solid #b88b2b;border-radius:50%;display:grid;place-items:center;color:var(--gold);font-weight:900}.terms strong{display:block;margin-bottom:3px}.terms p{margin:0;color:#e0e9f5;font-size:.9rem}.bodo{display:block;color:#a9bed7;margin-top:5px;font-size:.88rem}.agree{display:flex;align-items:flex-start;gap:10px;margin-top:18px;padding:13px;border-radius:10px;background:#091f36;color:#eaf2ff;font-weight:600}.agree input{width:18px;min-height:18px;accent-color:var(--gold);margin-top:2px;flex-shrink:0}.fineprint{color:var(--muted);font-size:.78rem;margin:14px 0 0}footer{text-align:center;padding:30px 10px 8px;color:#8ca8c6}footer strong{display:block;color:var(--gold);font-family:Georgia,serif;font-style:italic;font-size:1.35rem;margin-bottom:4px}
+@media(max-width:800px){main{grid-template-columns:1fr}.fields.three{grid-template-columns:1fr}.hero{padding:28px 24px}.hero:after{right:-190px;opacity:.45}.full{grid-column:auto}}@media(max-width:520px){.shell{padding:10px}.hero{min-height:220px;padding:24px 18px;border-radius:16px}.panel{padding:17px}.fields{grid-template-columns:1fr}.button-row{flex-direction:column}.total-line strong{font-size:1.45rem}.ticket-row{grid-template-columns:minmax(0,1fr) 88px}}@media print{body{background:#fff;color:#111}.hero,.panel{background:#fff;color:#111;box-shadow:none;border:1px solid #bbb}.hero p,.section-head p,label,.terms p,.bodo,.summary-list span,.ticket-row small{color:#333}.no-print{display:none!important}main{display:block}.panel{margin-bottom:12px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="hero"><div class="hero-content"><div class="kicker">Lights · Camera · Action</div><h1>Book <span>My Show</span></h1><p>Your favourite movies, your comfort, our cinema. Reserve your tickets for an unforgettable big-screen experience.</p><div class="hero-tag"><b></b> Your next movie night starts here</div></div></header>
+<form id="bookingForm" novalidate><main>
+<section class="panel full"><div class="section-head"><div class="num">1</div><div><h2>Select Movie &amp; Show</h2><p>Choose your movie, show time and seating preference.</p></div></div>
+<div class="fields three"><div class="field"><label for="movie">Movie (Date &amp; Name)</label><select id="movie" required><option>17 Oct — SUNDOOM</option><option>18 Oct — RUGUNG</option><option>19 Oct — DEODINI</option><option>20 Oct — DAKA JWMWI – II</option><option>21 Oct — GWHW</option></select></div>
+<div class="field"><label for="show">Show Time</label><select id="show" required><option>1st Show</option><option>2nd Show</option></select></div>
+<div class="field"><label for="seat">Seating Preference</label><select id="seat" required><option value="Premier">Premier / सेराव जिरायनाय — ₹130.00</option><option value="Standard">Standard / गाहायाव जिरायनाय — ₹100.00</option></select></div></div>
+<div class="availability"><div><small>Seats available for selected category</small><strong id="availableSeats">1,500 seats</strong></div><span class="pill" id="seatBadge">Premier</span></div></section>
+<section class="panel"><div class="section-head"><div class="num">2</div><div><h2>Customer Details</h2><p>Enter your contact information.</p></div></div><div class="fields">
+<div class="field"><label for="name">Full Name *</label><input id="name" autocomplete="name" required placeholder="Enter your full name"></div>
+<div class="field"><label for="phone">Phone Number *</label><input id="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+() -]{7,20}" placeholder="Enter phone number"></div>
+<div class="field"><label for="email">E-mail Address</label><input id="email" type="email" autocomplete="email" placeholder="Enter your e-mail"></div></div></section>
+<section class="panel"><div class="section-head"><div class="num">3</div><div><h2>Number of Tickets</h2><p>Children below 7 years enter free.</p></div></div>
+<div class="ticket-row"><div><strong>Adults</strong><small>Regular selected ticket price</small></div><input id="adults" aria-label="Number of adults" type="number" min="0" max="1500" step="1" value="0" required></div>
+<div class="ticket-row"><div><strong>Children below 7 years</strong><small>Free of charge — ₹0.00</small></div><input id="young" aria-label="Children below 7 years" type="number" min="0" max="1500" step="1" value="0" required></div>
+<div class="free-note">ⓘ Children below 7 years are FREE of charge.</div></section>
+<aside class="panel" id="summaryPanel"><div class="summary-top"><h2>▣ Booking Summary</h2><span class="pill">Live total</span></div><div class="summary-list">
+<span>Movie</span><strong id="sumMovie">17 Oct — SUNDOOM</strong><span>Show Time</span><strong id="sumShow">1st Show</strong><span>Seating</span><strong id="sumSeat">Premier — ₹130.00</strong><span>Adults</span><strong id="sumAdults">0 × ₹130.00</strong><span>Children below 7</span><strong id="sumYoung">0 × ₹0.00</strong><span>Total persons</span><strong id="sumPersons">0</strong></div><div class="summary-divider"></div><div class="total-line"><span>Total Amount</span><strong id="total">₹0.00</strong></div>
+<div class="button-row no-print"><button type="reset" class="secondary">↻ Reset</button><button type="button" class="primary" id="bookNowBtn">🎟 Book Now</button></div><div id="message" role="status" aria-live="polite"></div><p class="fineprint">Bookings are saved to the connected database before the PayU payment page opens. A saved booking is not a confirmed seat reservation until payment and seat availability are verified.</p></aside>
+<section class="panel full"><div class="section-head"><div class="num">4</div><div><h2>Terms &amp; Conditions</h2><p>Please read carefully and agree before booking.</p></div></div><ol class="terms">
+<li><div class="term-icon">◷</div><div><strong>a. Cancellation Policy</strong><p>Cancellation 2 hours before movie starts, after that cancellation not allowed.</p><span class="bodo" lang="brx">थिखेथखौ नै गनथा सिनिमा जागायजेननायनि सिगां खेनसेल खालामनो हागोन।</span></div></li>
+<li><div class="term-icon">▣</div><div><strong>b. Ticket Collection</strong><p>Ticket should be collected 1 hr before movie starts.</p><span class="bodo" lang="brx">थिखेथखौ से गनथा सिगां खावनथारनिफ्राय लानांगोन।</span></div></li>
+<li><div class="term-icon">!</div><div><strong>c. Alcohol Prohibition</strong><p>Drunk and anyone found with alcohol substance will not be allowed to enter.</p><span class="bodo" lang="brx">जौ लोंना बा जौ आरो निसा बेसद लाना हाबनो मोन्नाय नंआ।</span></div></li>
+<li><div class="term-icon">×</div><div><strong>d. Audience Conduct</strong><p>Viewers creating disturbance during the show hour shall be removed immediately.</p><span class="bodo" lang="brx">दावराव दावसि खालामग्राफोरखौ लोगो – लोगो बायरायाव दिहुननाय जागोन।</span></div></li></ol>
+<label class="agree"><input type="checkbox" id="agree" required><span>I have read and agree to all the terms and conditions. *</span></label></section>
+</main></form>
+<footer><strong>Enjoy the Magic of Cinema</strong>GREAT MOVIES · BIG SCREEN · UNFORGETTABLE EXPERIENCE</footer></div>
+<script>
+(() => {
+const $=id=>document.getElementById(id), form=$('bookingForm');
+// Configure these two values using your Supabase project settings.
+// Use the project's anon/public key only. NEVER put a service_role key in this HTML.
+const SUPABASE_URL = 'https://jijqzmnmfyyyctqtlfkm.supabase.co/rest/v1/';
+const SUPABASE_ANON_KEY = 'sb_publishable_zP_CQFEnEtP1NQjmAguShg_ViRjEOP0';
+const PAYU_PAYMENT_URL = 'https://u.payu.in/PAYUMN/0rlL3F8CDbtO';
+const money=n=>'₹'+n.toLocaleString('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2});
+const rate=()=>$('seat').value==='Premier'?130:100;
+const capacity=()=>$('seat').value==='Premier'?1500:500;
+const qty=id=>Number($(id).value||0);
+function update(){
+ const price=rate(),adults=qty('adults'),young=qty('young');
+ $('availableSeats').textContent=capacity().toLocaleString('en-IN')+' seats';$('seatBadge').textContent=$('seat').value;
+ $('sumMovie').textContent=$('movie').value;$('sumShow').textContent=$('show').value;$('sumSeat').textContent=$('seat').value+' — '+money(price);
+ $('sumAdults').textContent=adults+' × '+money(price);$('sumYoung').textContent=young+' × ₹0.00';$('sumPersons').textContent=adults+young;
+ $('total').textContent=money(adults*price);
+}
+['movie','show','seat','adults','young'].forEach(id=>$(id).addEventListener('input',update));
+$('seat').addEventListener('change',update);
+form.addEventListener('reset',()=>setTimeout(()=>{update();$('message').textContent='';$('message').className='';},0));
+function validateBooking(){
+ const counts=[$('adults').value,$('young').value];
+ const valid=counts.every(v=>v!==''&&Number.isInteger(Number(v))&&Number(v)>=0);
+ const people=valid?counts.reduce((s,v)=>s+Number(v),0):0;
+ if(!form.checkValidity()||!$('name').value.trim()||!$('phone').value.trim()||!valid||people<1){
+  $('message').className='message error';
+  $('message').textContent=people<1&&valid?'Please enter at least one ticket.':'Please complete all required fields correctly and agree to the terms.';
+  form.reportValidity();return null;
+ }
+ return {people, adults:Number($('adults').value), children_below_7:Number($('young').value)};
+}
+$('bookNowBtn').addEventListener('click', async ()=>{
+ const checked=validateBooking();
+ if(!checked) return;
+ if(SUPABASE_URL.includes('YOUR_PROJECT_REF') || SUPABASE_ANON_KEY.includes('YOUR_SUPABASE_ANON_KEY')){
+  $('message').className='message error';
+  $('message').textContent='Database is not configured yet. Add your Supabase Project URL and anon/public key in this HTML, then try again.';
+  return;
+ }
+ const btn=$('bookNowBtn');
+ btn.disabled=true;btn.textContent='Saving booking…';
+ $('message').className='message';$('message').textContent='Saving your booking details securely…';
+ const price=rate(), total=checked.adults*price;
+ const payload={
+  customer_name:$('name').value.trim(),
+  phone:$('phone').value.trim(),
+  email:$('email').value.trim()||null,
+  movie:$('movie').value,
+  show_time:$('show').value,
+  seating_category:$('seat').value,
+  adult_tickets:checked.adults,
+  children_below_7:checked.children_below_7,
+  total_amount:total,
+  currency:'INR',
+  terms_accepted:$('agree').checked,
+  payment_status:'pending'
+ };
+ try{
+  const response=await fetch(SUPABASE_URL.replace(/\/+$/,'')+'/rest/v1/movie_bookings',{
+   method:'POST',
+   headers:{
+    'Content-Type':'application/json',
+    'apikey':SUPABASE_ANON_KEY,
+    'Authorization':'Bearer '+SUPABASE_ANON_KEY,
+    'Prefer':'return=minimal'
+   },
+   body:JSON.stringify(payload)
+  });
+  if(!response.ok){
+   let detail='Database rejected the booking.';
+   try{const body=await response.json();detail=body.message||body.error_description||detail;}catch(_){}
+   throw new Error(detail);
+  }
+  $('message').className='message success';
+  $('message').textContent='Booking details saved. Opening PayU payment page…';
+  // This fixed PayU link does not automatically link the payment to a database row.
+  window.location.href=PAYU_PAYMENT_URL;
+ }catch(err){
+  $('message').className='message error';
+  $('message').textContent='Could not save booking: '+(err&&err.message?err.message:'Please check your connection and Supabase settings.');
+  btn.disabled=false;btn.textContent='🎟 Book Now';
+ }
+});
+update();
+})();
+</script>
+</body>
+</html>
